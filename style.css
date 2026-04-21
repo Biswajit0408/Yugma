@@ -218,11 +218,7 @@ nav {
   overflow: hidden;
   background: var(--off-white);
 
-  /* 🔥 MAIN FIX */
-  background-image: url('dd1.png');
-  background-size: cover;        /* fills completely */
-  background-position: center;   /* adjust focus */
-  background-repeat: no-repeat;
+  
 
   min-height: 320px;
 }
@@ -633,10 +629,15 @@ footer {
   }
 
   .feature-img-cell {
-    min-height: 300px;
-    background-size: contain;
-    background-position: center;
-  }
+  display: flex;
+  align-items: flex-start;   /* 🔥 push image to top */
+  justify-content: center;
+  overflow: hidden;
+  background: var(--off-white);
+
+  padding: 0;                /* 🔥 remove internal gap */
+  min-height: 320px;
+}
 
   /* ✅ FIXED: MARQUEE now INSIDE media query */
 
@@ -784,4 +785,29 @@ footer {
   .nav-links a {
     font-size: 1rem;
   }
+}
+@media (max-width: 768px) {
+  .feature-img-cell {
+    background-size: 130%;
+    background-position: top center;
+    min-height: auto;
+    padding: 0 !important;
+  }
+}
+.feature-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* 🔥 fills properly */
+  display: block;
+}
+.feature-cell:not(.feature-img-cell) {
+  padding: 3rem 2.5rem;
+}
+.feature-img-cell {
+  padding: 0;                 /* 🔥 remove padding completely */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--off-white);
 }
