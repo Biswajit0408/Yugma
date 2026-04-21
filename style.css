@@ -737,3 +737,51 @@ footer {
     margin-bottom: 8px;
   }
 }
+/* HIDE TOGGLE ON DESKTOP */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ───────── MOBILE NAV ───────── */
+@media (max-width: 768px) {
+
+  nav {
+    padding: 0 1.5rem;
+  }
+
+  /* SHOW TOGGLE */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* HIDE LINKS BY DEFAULT */
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+
+    background: var(--white);
+    border-top: 1px solid var(--black);
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+
+    padding: 1.5rem;
+
+    display: none; /* 🔥 hidden initially */
+  }
+
+  /* WHEN ACTIVE */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* LINK SIZE */
+  .nav-links a {
+    font-size: 1rem;
+  }
+}
