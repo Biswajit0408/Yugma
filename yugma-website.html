@@ -83,7 +83,7 @@
       <p>Gym. Street. Anywhere.</p>
     </div>
 
-    <a href="#" class="view-classes-link">View Classes</a>
+    <a href="#" class="btn-view">View Collection</a>
   </div>
 
   <!-- 🔥 ONLY IMAGE -->
@@ -92,9 +92,9 @@
 </section>
 <!-- ── CTA ── -->
 <section class="cta-section">
-  <p class="cta-label">What We Believe In</p>
+  <p class="cta-label">Push Beyond Limits</p>
   <h2 class="cta-headline">Checkout the New Collection!</h2>
-  <a href="#" class="cta-btn">Reserve Your Spot</a>
+  <a href="#" class="cta-btn">Step Up</a>
 </section>
 
 <!-- ── FOOTER ── -->
@@ -102,24 +102,22 @@
   <div class="footer-top">
     <!-- Logo icon large -->
    <img src="rel.jpg" alt="Yugma logo">
-    <span class="footer-brand">Yugma</span>
+    <span class="footer-brand">YUGMA</span>
   </div>
 
   <div class="footer-cols">
     <div class="footer-col">
       <h4>Contact</h4>
-      <p>Email: hello@figma.com</p>
-      <p>Phone: (203) 555-5555</p>
+      <p>Email: routbiswajit.0408@gmail.com</p>
+      <p>Phone: 9998665068</p>
     </div>
-    <div class="footer-col">
-      <h4>Opening Hours</h4>
-      <div class="hours-table">
-        <span>Mon – Fri</span><span>5:00 – 23:00</span>
-        <span>Saturdays</span><span>8:00 – 16:00</span>
-        <span>Sundays</span><span>8:00 – 13:00</span>
-        <span>Holidays</span><span>8:00 – 16:00</span>
-      </div>
-    </div>
+   <div class="footer-col signature-col">
+  <h4>Signature</h4>
+
+  <div class="signature-box">
+    <img src="signature.png" alt="Yugma Signature" class="signature-img">
+  </div>
+</div>
     <div class="footer-col">
       <h4>Social</h4>
       <div class="social-links">
@@ -131,10 +129,27 @@
     </div>
   </div>
 
-  <div class="footer-bottom">
-    © 2025 Yugma. All rights reserved.
-  </div>
 </footer>
 
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cta = document.querySelector('.cta-section');
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        cta.classList.add('active');
+      } else {
+        cta.classList.remove('active'); // 🔥 THIS WAS MISSING
+      }
+    },
+    {
+      threshold: 0.6   // 🔥 higher = triggers only when centered
+    }
+  );
+
+  observer.observe(cta);
+});
+</script>
 </html>

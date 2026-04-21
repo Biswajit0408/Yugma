@@ -94,8 +94,8 @@ nav {
 /* 🔥 SHOP NOW BUTTON (IMPORTANT) */
 .nav-shop a {
   padding: 10px 18px;
-  border: 1px solid var(--black);
-  border-radius: 20px;
+  border: 0.2px solid var(--black);
+  
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   transition: all 0.2s ease;
@@ -151,8 +151,8 @@ nav {
 }
 /* HERO IMAGE */
 .hero-image {
-  height: 100vh;
-  min-height: 200px;
+  height: 80vh;
+  min-height: 100px;
   background: #d9d6ce;
 
   display: flex;
@@ -188,6 +188,7 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  font-size: 2em;
 }
 
 .feature-cell:last-child {
@@ -197,10 +198,12 @@ nav {
 /* TEXT */
 .feature-cell h2 {
   font-family: var(--font-display);
-  font-size: 2rem;
   font-weight: 900;
   text-transform: uppercase;
   margin-bottom: 1rem;
+}
+.features-left h2 {
+  font-size: 2.2em;
 }
 
 .feature-cell p {
@@ -290,6 +293,27 @@ nav {
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
+  font-size: 1.2rem;
+}
+
+.btn-view {
+  display: inline-block;
+  margin-top: 1rem;
+  width: fit-content;
+  padding: 1rem 1rem;
+  border: 0.1px solid var(--black);
+
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: var(--black);
+  text-decoration: none;
+  background: transparent;
+
+  transition: all 0.3s ease;
 }
 
 /* RIGHT */
@@ -302,87 +326,191 @@ nav {
   background-position: center;
   background-repeat: no-repeat;
 }
-/* ───────── CTA ───────── */
+/* ───────── CTA SECTION (FINAL AUTO COLOR SHIFT) ───────── */
+
 .cta-section {
   text-align: center;
-  padding: 6rem 2rem;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  padding: 7rem 2rem;
+
+  border-top: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+
+  animation: ctaBgShift 12s ease-in-out infinite alternate;
+
+  color: var(--black);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* CENTER CONTENT */
+.cta-section > * {
+  max-width: 900px;
+}
+
+/* LABEL */
 .cta-label {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.7;
 }
 
+/* HEADLINE */
 .cta-headline {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(3rem, 6vw, 6rem);
   font-weight: 900;
-  margin-top: 1rem;
+  text-transform: uppercase;
+
+  margin: 1rem 0 2rem;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+
+  text-align: center;
 }
 
 .cta-btn {
-  margin-top: 1.5rem;
-  padding: 0.8rem 2rem;
-  border: 1px solid black;
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+
+  border: 1px solid currentColor;  /* 🔥 adapts automatically */
+  color: inherit;                 /* 🔥 follows section text */
+  background: transparent;
+
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   text-decoration: none;
-  font-size: 0.8rem;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* 🔥 HOVER = POP ONLY (no color change) */
+.cta-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* ───────── ANIMATION ───────── */
+
+@keyframes ctaBgShift {
+  0% {
+    background: #f5f4f1;
+    color: #0a0a0a;
+  }
+
+  50% {
+    background: #888888;
+    color: #0a0a0a;
+  }
+
+  100% {
+    background: #0a0a0a;
+    color: #ffffff;
+  }
+}
 /* ───────── FOOTER ───────── */
 footer {
   border-top: 1px solid black;
+  padding-bottom: 0; /* 🔥 remove extra bottom space */
 }
 
+/* TOP ROW */
 .footer-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 2.5rem 2rem; /* 🔥 reduced */
 }
 
-/* 🔥 FIXED LOGO SIZE */
+/* LOGO */
 .footer-top img {
-  width: 90px;        /* control size */
+  width: 90px;
   height: 90px;
   object-fit: contain;
 }
 
-/* OPTIONAL: brand text alignment */
+/* BRAND TEXT */
 .footer-brand {
   font-family: var(--font-display);
   font-size: clamp(3rem, 6vw, 6rem);
   font-weight: 900;
 }
 
-.footer-brand {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 6rem);
-  font-weight: 900;
-}
-
+/* ───────── MAIN GRID ───────── */
 .footer-cols {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 3rem 2rem;
+
+  padding: 2rem 2rem 1rem; /* 🔥 tighter */
   gap: 2rem;
+
+  align-items: center; /* 🔥 THIS fixes vertical gap */
 }
 
+/* COLUMNS BASE */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* HEADINGS */
 .footer-col h4 {
   font-size: 0.8rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
 
-.footer-bottom {
-  border-top: 1px solid black;
-  padding: 1rem;
-  font-size: 0.75rem;
-  text-align: center;
+/* LINKS */
+.footer-col a {
+  display: block;
+  margin-bottom: 6px;
 }
 
+/* LEFT */
+.footer-col:nth-child(1) {
+  text-align: left;
+}
+
+/* CENTER (SIGNATURE) */
+.footer-col:nth-child(2) {
+  text-align: center;
+  align-items: center;
+}
+
+/* RIGHT (SOCIAL) */
+.footer-col:nth-child(3) {
+  text-align: right;
+  align-items: flex-end;
+}
+
+/* ───────── SIGNATURE FIX ───────── */
+.signature-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signature-box {
+  margin: 0;              /* 🔥 remove extra push */
+  line-height: 0;         /* 🔥 removes hidden space */
+}
+
+.signature-img {
+  width: 400px;           /* keep your size */
+  display: block;         /* 🔥 IMPORTANT */
+}
+
+/* REMOVE UNUSED FOOTER BOTTOM */
+.footer-bottom {
+  display: none;
+}
 /* ───────── MOBILE ───────── */
 @media (max-width: 768px) {
 
@@ -406,6 +534,21 @@ footer {
   .footer-cols {
     grid-template-columns: 1fr;
   }
+}
+.signature-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.signature-box {
+  margin-top: 10px;
+}
+
+.signature-img {
+  width: 400px;   /* adjust if needed */
+  opacity: 0.85;
+
+  filter: grayscale(100%) contrast(120%);
 }
 /* ───────── MOBILE (≤768px) ───────── */
 @media (max-width: 768px) {
@@ -483,14 +626,11 @@ footer {
     border-bottom: 1px solid black;
     padding: 2rem 1.5rem;
     min-height: auto;
+    
   }
 
-  .feature-cell h2 {
-    font-size: 1.5rem;
-  }
 
   .feature-cell p {
-    font-size: 0.9rem;
     max-width: 100%;
   }
 
@@ -501,9 +641,6 @@ footer {
   }
 
   /* ✅ FIXED: MARQUEE now INSIDE media query */
-  .marquee-text {
-    font-size: 0.75rem;  /* 🔥 not 12vw */
-  }
 
   /* FEATURES SECTION */
   .features-section {
@@ -512,19 +649,30 @@ footer {
 
   .features-left {
     border-right: none;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1rem;
+    font-size: 1.2rem;
   }
 
   .features-left h2 {
-    font-size: 2rem;
-  }
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+  .features-left p {
+  font-size: 1.05em;
+  line-height: 1.6;
+  opacity: 0.85;
+}
 
   .feature-item {
     padding: 1.2rem 0;
   }
 
   .features-right {
-    min-height: 300px;
+    min-height: 100px;
   }
 
   .fashion-word {
